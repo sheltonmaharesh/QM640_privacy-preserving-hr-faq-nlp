@@ -74,14 +74,14 @@ Expected planning minima:
 | Research question | Planning method | Minimum |
 |---|---|---:|
 | RQ1 | 95% CI for a proportion, p=.50, margin ±.03 | 1,068 eligible threads |
-| RQ2 | Paired t-test power, d=.30, alpha=.05, power=.80 | 90 paired observations |
+| RQ2 | 95% CI for PII precision/recall, p=.50, margin ±.05 | 385 relevant PII decisions per denominator |
 | RQ3 | Fisher-z correlation approximation, r=.25, alpha=.05, power=.80 | 124 cluster/FAQ observations |
 | RQ4 | 95% CI for a proportion, p=.50, margin ±.07 | 196 reviewed FAQ pairs |
 
 For rubric alignment, the preliminary maximum is:
 
 ```
-max(1068, 90, 124, 196) = 1068
+max(1068, 385, 124, 196) = 1068
 ```
 
 Because the four research questions use **different units of analysis**, 1,068 should be interpreted as the source-corpus planning target rather than as a substitute for each RQ-specific validation requirement.
