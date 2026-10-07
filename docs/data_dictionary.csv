@@ -1,0 +1,20 @@
+variable_name,type,unit_or_scale,role,meaning,relevance
+thread_id,string,identifier,identifier,Pseudonymous thread identifier,Links messages belonging to the same HR interaction
+message_id,string,identifier,identifier,Pseudonymous message identifier,Supports traceability within the approved environment
+language,categorical,"en/de/other",predictor_or_stratifier,Detected message language,Supports multilingual analysis and PII model routing
+question_text_redacted,text,text,analysis_input,Employee question after PII redaction,Primary text used for embeddings and clustering
+response_text_redacted,text,text,analysis_input,HR response after PII redaction,Used for answer grounding and FAQ synthesis
+action_class,categorical,L0/L1/L2,predictor_or_stratifier,Operational action category when available,Supports stratified analysis
+topic_label,categorical,label,descriptive_or_stratifier,Operational or derived topic label,Supports comparison with semantic clusters
+embedding_vector,numeric_vector,dimensionless,derived_feature,Semantic representation of redacted text,Used for similarity and clustering
+cluster_id,categorical,cluster label,derived_feature,Semantic cluster assignment,Used for recurring-topic coverage
+is_noise,binary,0/1,outcome_or_quality_flag,Whether clustering marks the observation as noise,Used in topic coverage assessment
+cluster_cohesion,continuous,0-1,independent_or_quality_metric,Within-cluster semantic similarity,Used in RQ3
+grounding_similarity,continuous,0-1,independent_or_quality_metric,Similarity between proposed answer and supporting HR responses,Used in RQ3
+question_similarity,continuous,0-1,independent_variable,Similarity between two FAQ questions,Input to conflict screening
+answer_similarity,continuous,0-1,independent_variable,Similarity between two FAQ answers,Input to conflict screening
+conflict_score,continuous,to_be_finalized,derived_predictor,Screening score for similar questions with divergent answers,RQ4 candidate ranking signal
+human_conflict_label,binary,0/1,dependent_variable,Reviewer judgment of whether a candidate pair is genuinely conflicting,Reference label for RQ4
+review_quality,categorical_or_binary,to_be_finalized,dependent_variable,Human review assessment of FAQ quality,RQ3 validation outcome
+pii_redaction_count,integer,count,quality_metric,Number of PII spans removed from a record,Supports privacy process auditing
+semantic_preservation_score,continuous,0-1,dependent_variable,Similarity of representation before versus after approved redaction,RQ2 outcome
