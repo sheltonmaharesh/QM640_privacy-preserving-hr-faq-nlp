@@ -1,0 +1,9 @@
+thread_id,message_id,language,question_text_redacted,response_text_redacted,action_class,topic_label
+SYN-001,SYN-M001,en,How many vacation days can I carry into next year?,Unused leave carryover depends on the applicable policy and employee situation.,L1,leave
+SYN-002,SYN-M002,de,Wie kann ich meine Adresse in den Personaldaten ändern?,Die Änderung erfolgt über den vorgesehenen HR-Prozess für Stammdatenänderungen.,L1,personal_data
+SYN-003,SYN-M003,en,Where can I find my payslip?,Payslips are available through the organization's approved employee payroll channel.,L1,payroll
+SYN-004,SYN-M004,de,Wie melde ich eine Krankenstandsbescheinigung?,Bitte verwenden Sie den vorgesehenen Prozess für die Übermittlung von Krankenstandsunterlagen.,L2,sick_leave
+SYN-005,SYN-M005,en,Who should I contact about parental leave?,The HR team can guide you to the applicable parental-leave process and policy.,L1,parental_leave
+SYN-006,SYN-M006,en,Can I change my bank account for salary payments?,Salary-payment details can be updated through the approved HR master-data process.,L2,payroll
+SYN-007,SYN-M007,de,Wo finde ich Informationen zu Sonderurlaub?,Information about special leave is available in the applicable HR policy source.,L1,leave
+SYN-008,SYN-M008,en,How do I update my emergency contact?,Use the approved employee master-data process to update emergency-contact information.,L1,personal_data
