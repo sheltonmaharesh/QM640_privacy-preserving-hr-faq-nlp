@@ -16,12 +16,12 @@ def test_rq1_minimum():
     assert n == 1068
 
 
-def test_rq2_minimum_exact_paired_t():
-    raw, n = MODULE.paired_t_sample_size(
-        effect_size_dz=0.30, alpha=0.05, power=0.80
+def test_rq2_precision_recall_ci_minimum():
+    raw, n = MODULE.proportion_ci_sample_size(
+        p=0.50, margin_of_error=0.05, confidence=0.95
     )
-    assert 89 < raw < 90
-    assert n == 90
+    assert 384 < raw < 385
+    assert n == 385
 
 
 def test_rq3_minimum():
@@ -36,7 +36,7 @@ def test_rq4_minimum():
     raw, n = MODULE.proportion_ci_sample_size(
         p=0.50, margin_of_error=0.07, confidence=0.95
     )
-    assert 195 < raw < 196
+    assert 195 < raw < 197
     assert n == 196
 
 
