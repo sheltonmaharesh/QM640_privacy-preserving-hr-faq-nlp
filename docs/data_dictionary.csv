@@ -1,23 +1,23 @@
-variable_name,type,unit_or_scale,role,meaning,relevance
-thread_id,string,identifier,identifier,Pseudonymous HR-mailbox thread key,Linking/unit key
-processing_timestamp,datetime,date/time,control,Timestamp used for inclusion and freshness checks,Temporal control
-language,categorical,category,stratifier,Detected language such as de en mixed or other,Stratification
-question_text_redacted,text,text,analysis_input,Employee question after PII redaction,Embedding and clustering input
-response_text_redacted,text,text,analysis_input,Linked HR response after PII redaction,Grounding input
-action_class,categorical,category,stratifier,Operational action category when available,Stratification
-topic_label,categorical,category,stratifier,Operational or derived topic or subtopic label,Comparison and stratification
-pii_reference_label,categorical,entity_class,reference_label,Human-reviewed PII entity label,RQ2 reference standard
-pii_predicted_label,categorical,entity_class,prediction,NER and regex predicted PII entity label,RQ2 prediction
-semantic_preservation_score,continuous,0-1,outcome,Cosine similarity before versus after approved redaction,RQ2 outcome
-embedding_vector,numeric_vector,dimensionless,derived_feature,Semantic representation of redacted question,Clustering and similarity
-cluster_id,categorical,cluster_label,outcome,Semantic cluster assignment where -1 may denote noise,RQ1 outcome
-cluster_cohesion,continuous,0-1,quality_signal,Within-cluster semantic similarity,RQ1 and RQ3 quality signal
-grounding_similarity,continuous,0-1,outcome,Similarity of candidate answer to supporting HR responses,RQ3 outcome
-question_similarity,continuous,0-1,predictor,Similarity between FAQ questions,RQ4 predictor
-answer_similarity,continuous,0-1,predictor,Similarity between FAQ answers,RQ4 predictor
-conflict_score,continuous,0-1_planned,predictor,Screening score for similar questions with divergent answers,RQ4 predictor
-hr_review_outcome,categorical,category,validation_outcome,Accept revise reject or conflict-review label,Human validation outcome
-topic_coverage,continuous,0-1_proportion,outcome,Proportion of eligible threads assigned to recurring semantic topics,RQ1 outcome
-pii_precision,continuous,0-1_proportion,outcome,True PII detections divided by all predicted PII detections,RQ2 outcome
-pii_recall,continuous,0-1_proportion,outcome,True PII detections divided by all reference-positive PII entities,RQ2 outcome
-usable_faq_yield,continuous,0-1_proportion,dependent_variable,Proportion of recurring-demand FAQ candidates judged usable after HR expert review,Primary dependent outcome
+variable_name,definition,datatype,allowed_values_or_range,missing_value_handling,notes
+thread_id,Pseudonymous conversation key,string,Nonempty identifier,Quarantine missing source key,Public synthetic and planned enterprise
+language,Detected question language,categorical,en; de; mixed; other,Mark undetermined for secure review,Public synthetic and planned enterprise
+question_text_redacted,Privacy-masked employee question,text,Nonempty text,Exclude unusable empty text,Public synthetic input; planned enterprise
+response_text_redacted,Privacy-masked HR response,text,Nonempty text,Mark absent until linked response found,Public synthetic example; planned enterprise
+action_class,Operational action category,categorical,Neutral category codes,Unknown category if absent,Public synthetic only
+topic_label,Operational or illustrative topic,categorical,Neutral topic labels,Unknown category if absent,Public synthetic; not cluster ground truth
+message_id,Pseudonymous email identifier,string,Nonempty identifier,Quarantine missing source key,Proposed enterprise only
+received_at,Message receipt timestamp,datetime,Valid timestamp,Quarantine invalid source time,Proposed enterprise only
+primary_category,Neutral operational primary category,categorical,Neutral labels,Unknown category if absent,Proposed enterprise only
+sub_category,Neutral operational subcategory,categorical,Neutral labels,Unknown category if absent,Proposed enterprise only
+has_attachment,One or more attachments,boolean,true; false,Recompute from source metadata,Proposed enterprise only
+response_status,Recorded response class,categorical,replied; none; routed,Unknown category if absent,Proposed enterprise only
+question_raw,Restricted original question,text,Source text,Exclude unusable empty text,Restricted; never public
+pii_type,Detected PII span type,categorical,PERSON; EMAIL; PHONE; etc,No spans means none detected,Proposed enterprise only
+pii_count,Detected PII spans per message,integer,0 or greater,Recompute after secure parsing,Proposed enterprise only
+embedding,Redacted question embedding,numeric vector,Fixed dimension per model,Not yet run; derive later,RQ1 and RQ4
+cluster_id,Semantic cluster assignment,categorical,cluster ID; -1 for noise,Not yet run; derive later,RQ1
+cohesion,Within-cluster semantic similarity,float,Model-defined range,Not yet run; derive later,RQ1 and RQ3
+grounding_score,Evidence support proxy,float,Model-defined range,Not yet run; derive later,RQ3
+review_decision,Expert FAQ review decision,categorical,accept; revise; reject,Pending human review,RQ3
+conflict_score,Similarity-divergence screening score,float,0 to 1 planned,Not yet run; derive later,RQ4
+review_conflict,Expert review-needed label,boolean,true; false,Pending human review,RQ4
