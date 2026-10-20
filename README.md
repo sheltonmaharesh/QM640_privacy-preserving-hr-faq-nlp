@@ -1,9 +1,9 @@
 # QM 640 - Privacy-Preserving HR FAQ NLP
 
-This repository supports the **QM 640 – Data Analytics Capstone** draft synopsis.
+This repository supports the **QM 640 – Data Analytics Capstone** interim report and earlier synopsis.
 
 **Student:** Shelton Maharesh Sundersingh  
-**Mentor:** Dr. Dr. Sanghitaa Karmakar
+**Mentor:** Dr. Sanghitaa Karmakar
 
 ## Working topic
 
@@ -13,7 +13,7 @@ The study is based on an HR mailbox at **a leading European bank in Austria**. T
 
 ## Current stage
 
-This repository represents the **starting / synopsis stage** of the capstone. Research questions, statistical assumptions, thresholds, and validation criteria are preliminary and will be refined in later course weeks.
+This repository supports the **interim-report stage** of the capstone. Aggregate descriptive exploratory analysis is documented in the interim report; model training, privacy detector validation, and HR expert review remain pending. Research assumptions and thresholds are provisional.
 
 ## Proposed research questions
 
@@ -88,8 +88,8 @@ Because the four research questions use **different units of analysis**, 1,068 s
 
 ## Privacy and data-access statement
 
-The real HR-mailbox dataset is confidential and cannot be published. The public `data/` file is entirely synthetic and exists only to make the repository structure reproducible. Any real-data analysis will remain inside the approved secure environment and will use the organization's privacy and access controls.
+The real HR-mailbox dataset is confidential and cannot be published. **Raw enterprise data:** restricted to the approved environment (no public path). **Processed enterprise data:** restricted to the approved environment (no public path). **Public synthetic sample:** `data/synthetic_hr_mailbox.csv`. **Code:** `analysis/sample_size_check.py`; **tests:** `tests/test_sample_size_check.py`; **dictionary:** `docs/data_dictionary.csv`. The public sample contains only synthetic records. Any real-data analysis will remain inside the approved secure environment and use the organization's privacy and access controls.
 
-## Week 1 limitation statement
+## Interim limitation statement
 
-This repository does not claim completed EDA, final hypotheses, calibrated thresholds, model-performance results, final expert-validation results, or conclusions. Those belong to later capstone phases.
+The public synthetic dataset contains eight illustrative question-response records. Operational descriptive EDA is reported separately using approved aggregate summaries. This repository does not claim completed clustering/model-performance results, final expert-validation results, or production-data reproducibility. Those require secure-environment analysis.
